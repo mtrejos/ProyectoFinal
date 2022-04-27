@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/plantilla::head"/>
+<body>
+    <div th:replace="layout/plantilla::header"/>
+    <main>
+        <div class="container">
+            <h1 th:text="#{editar.tituloA}">Datos del Actividades</h1>
+            <a th:href="@{/actividades/lista}" th:text="#{editar.back}">Regresar</a>
+            <form th:action="@{/actividades/guardar}" method="post" th:object="${actividad}">
+                <div class="mb-3">
+                    <input type="hidden" name="id" th:field="*{id}"/>
+                    <label class="form-label" for="nombre" th:text="#{editar.nombre}">Nombre:</label>
+                    <input class="form-control" type="text" name="nombre" th:field="*{nombre}"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="descripcion" th:text="#{editar.desc}">Descripcion:</label>
+                    <input class="form-control" type="text" name="descripcion" th:field="*{descripcion}"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="parque" th:text="#{editar.parque}">Parque:</label>
+                    <select class="form-select" th:field="*{parque}">
+                        <option th:each="parque:${parques}" th:value="${parque.id}" th:text="${parque.nombre}"/>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="estatu" th:text="#{editar.estatus}">Estatu:</label>
+                    <select class="form-select" th:field="*{estatu}">
+                        <option th:each="estatu:${estatus}" th:value="${estatu.id}" th:text="${estatu.nombre}"/>
+                    </select>
+                </div>
+                <input class="btn btn-primary" type="submit" name="guardar" value="Guardar">
+            </form>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <footer th:replace="layout/plantilla::footer"/>
+</body>
+</html>

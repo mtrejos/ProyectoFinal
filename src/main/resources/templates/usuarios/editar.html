@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/plantilla::head"/>
+<body>
+    <div th:replace="layout/plantilla::header"/>
+    <main>
+        <div class="container">
+            <h1 th:text="#{editar.tituloU}">Datos de Usuario</h1>
+            <a th:href="@{/usuarios/lista}" th:text="#{editar.back}">Regresar</a>
+            <form th:action="@{/usuarios/guardar}" method="post" th:object="${usuario}">
+                <div class="mb-3">
+                    <input type="hidden" name="id" th:field="*{id}"/>
+                    <label class="form-label" for="nick" th:text="#{editar.nick}">Nick:</label>
+                    <input class="form-control" type="text" name="nick" th:field="*{nick}"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="pwd" th:text="#{editar.clave}">Clave:</label>
+                    <input class="form-control" type="text" name="pwd" th:field="*{pwd}"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="nombre" th:text="#{editar.nombre}">Nombre:</label>
+                    <input class="form-control" type="text" name="nombre" th:field="*{nombre}"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="apellido" th:text="#{editar.apellido}">Apellido:</label>
+                    <input class="form-control" type="text" name="apellido" th:field="*{apellido}"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="telefono" th:text="#{editar.telefono}">Telefono:</label>
+                    <input class="form-control" type="tel" name="telefono" th:field="*{telefono}"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="correo" th:text="#{editar.correo}">Correo:</label>
+                    <input class="form-control" type="email" name="correo" th:field="*{correo}"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="rol" th:text="#{editar.rol}">Rol:</label>
+                    <select class="form-select" th:field="*{rol}">
+                        <option th:each="rol:${roles}" th:value="${rol.id}" th:text="${rol.rol}"/>
+                    </select>
+                </div>
+                <input class="btn btn-primary" type="submit" name="guardar" value="Guardar">
+            </form>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <footer th:replace="layout/plantilla::footer"/>
+</body>
+</html>

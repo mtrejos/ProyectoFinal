@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/plantilla::head"/>
+<body>
+    <div th:replace="layout/plantilla::header"/>
+    <main class="container">
+        <div class="content-header">
+            <h1 th:text="#{contentheader.titulo}">Conozca Costa Rica con nosotros</h1>
+            <p th:text="#{contentheader.text}">La mejor forma de viajar por Costa Rica y al mejor precio</p>
+            <!-- <a href="Reserva.html">Reservar Ahora</a> -->
+        </div>
+        <div class="content-mid">
+            <div>
+                <h1 th:text="#{contentmid.mision}">Mision</h1>
+
+                <p th:text="#{contentmid.misiontext}">Gestionar integralmente la conservación y manejo sostenible de la vida silvestre, los recursos forestales, las áreas silvestres protegidas, cuencas hidrográficas y sistemas hídricos, en coordinación con otras instituciones y actores de la sociedad, para el bienestar de las actuales y futuras generaciones.</p>  
+            </div>
+            <img src="https://static.onecms.io/wp-content/uploads/sites/28/2021/06/01/costa-rica-arenal-volcano-COSTARICATG0621.jpg" width="30%">
+
+            <h2 th:text="#{contentmid.vision}">Vision</h2>
+
+            <p th:text="#{contentmid.visiontext}">Gestionar integralmente la conservación y manejo sostenible de la vida silvestre, los recursos forestales, las áreas silvestres protegidas, cuencas hidrográficas y sistemas hídricos, en coordinación con otras instituciones y actores de la sociedad, para el bienestar de las actuales y futuras generaciones.</p> 
+            <h2 th:text="#{contentmid.seguridad}">Seguridad</h2>
+
+            <p th:text="#{contentmid.seguridadtext}">Gestionar integralmente la conservación y manejo sostenible de la vida silvestre, los recursos forestales, las áreas silvestres protegidas, cuencas hidrográficas y sistemas hídricos, en coordinación con otras instituciones y actores de la sociedad, para el bienestar de las actuales y futuras generaciones.</p>  
+        </div>
+        <div class="content-footer">
+            <h1 th:text="#{contentfooter.titulo}"> Transparencia con nuestros clientes</h1>
+            <p th:text="#{contentfooter.text}">
+                Somos una empresa creada desde el 2015 la cual ha garantizado más de 700 mil viajes a el turismo de CR. Nuestra relacion con los clientes se basa en responsabilidad y transparencia, para que su viaje sea satisfactorio, nuestros guias cuentan con las mejores experiencias en el campo del turismo, hablan ingles,español,portugués y otros idiomas. Nuestras reglas son basadas en el Instituto Costarricense de Turismo las cuales son; 1. Tenemos las reglas claras y las ponemos al alcance de todos 2.Identificamos nuestros objetivos, trazamos un plan de trabajo y lo seguimos 3.Comunicamos de manera simple y con transparencia 4.Informamos los precios de la mejor manera sin causar confusion o problemas. Nuestra empresa cumple con valores y uno de esos es la sinceridad con los clientes.
+            </p>
+        </div>
+    </main>
+    <footer th:replace="layout/plantilla::footer"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

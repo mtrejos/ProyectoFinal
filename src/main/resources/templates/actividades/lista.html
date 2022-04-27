@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/plantilla::head"/>
+<body>
+    <div th:replace="layout/plantilla::header"/>
+    <main>
+        <div class="container">
+            <h2 th:text="#{lista.listA}">Lista de actividades</h2>
+            <a th:href="@{/actividades/registrar}" th:text="#{lista.addA}">Agregar nueva actividad</a>
+            <div th:if="${actividades != null and !actividades.empty}">
+                <div class="row">
+                    <div th:each="actividad:${actividades}" class="col-sm-4">
+                        <div class="card">
+                          <div class="card-body">
+                            <h3 class="card-title" th:text="${actividad.nombre}"></h3>
+                            <p class="card-text" th:text="${actividad.descripcion}"></p>
+                          </div>
+                          <div class="card-body">
+                            <h4 th:text="#{lista.parque}">Parque</h4>
+                            <p th:text="${actividad.parque.nombre}"></p>
+                            <h5 th:text="#{lista.estatus}">Estatus</h5>
+                            <p th:text="${actividad.estatu.nombre}"></p>
+                          </div>
+                          <div class="card-body">
+                            <a th:href="@{/actividades/eliminar/} + ${actividad.id}" th:text="#{lista.eliminar}" class="card-link">Eliminar</a>
+                            <a th:href="@{/actividades/modificar/} + ${actividad.id}" th:text="#{lista.modificar}" class="card-link">Modificar</a>
+                            <a th:text="#{lista.vender}" class="card-link">Vender</a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div th:if="${actividades == null or actividades.empty}">
+                <p th:text="#{lista.emptyA}">No existen actividades registrados.</p>
+            </div>
+            <a th:href="@{/}" th:text="#{lista.back}">Regresar al inicio</a>
+        </div>
+    </main>
+    <footer th:replace="layout/plantilla::footer"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

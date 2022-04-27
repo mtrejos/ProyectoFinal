@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/plantilla::head"/>
+<body>
+    <div th:replace="layout/plantilla::header"/>
+    <main>
+        <div class="container">
+            <h2 th:text="#{lista.listP}">Lista de Parques</h2>
+            <a th:href="@{/parques/registrar}" th:text="#{lista.addP}">Agregar nuevo parque</a>
+            <div th:if="${ parques != null and !parques.empty}">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th th:text="#{lista.eliminar}">Eliminar</th>
+                            <th th:text="#{lista.nombre}">Nombre</th>
+                            <th th:text="#{lista.estatus}">Estatus</th>
+                            <th th:text="#{lista.modificar}">Modificar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="parque:${parques}">
+                            <td><a th:href="@{/parques/eliminar/} + ${parque.id}" th:text="#{lista.eliminar}">Eliminar</a></td>
+                            <td th:text="${parque.nombre}"></td>
+                            <td th:text="${parque.estatu.nombre}"></td>
+                            <td><a th:href="@{/parques/modificar/} + ${parque.id}" th:text="#{lista.modificar}">Modificar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div th:if="${parques == null or parques.empty}">
+                <p th:text="#{lista.addP}">No existen parques registrados.</p>
+            </div>
+            <a th:href="@{/}" th:text="#{lista.back}">Regresar al inicio</a>
+        </div>
+    </main>
+    <footer th:replace="layout/plantilla::footer"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

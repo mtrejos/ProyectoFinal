@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/plantilla::head"/>
+<body>
+    <div th:replace="layout/plantilla::header"/>
+    <main>
+        <h2>Lista de Parques</h2>
+        <a th:href="@{/registrousuario}">Agregar nuevo usuario</a>
+        <div th:if="${usuarios != null and !usuarios.empty}">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Eliminar</th>
+                        <th>nick</th>
+                        <th>nombre</th>
+                        <th>apellido</th>
+                        <th>telefono</th>
+                        <th>correo</th>
+                        <th>rol</th>
+                        <th>Modificar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="usuario:${usuarios}">
+                        <td><a th:href="@{/eliminarusuario/} + ${usuario.id}">Eliminar</a></td>
+                        <td th:text="${usuario.nick}"></td>
+                        <td th:text="${usuario.nombre}"></td>
+                        <td th:text="${usuario.apellido}"></td>
+                        <td th:text="${usuario.telefono}"></td>
+                        <td th:text="${usuario.correo}"></td>
+                        <td th:text="${usuario.rol}"></td>
+                        <td><a th:href="@{/modificarusuario/} + ${usuario.id}">Modificar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${{usuarios == null or {usuarios.empty}">
+            No existen usuarios registrados.
+        </div>
+        <a th:href="@{/}">Regresar al inicio</a>
+    </main>
+    <footer th:replace="layout/plantilla::footer"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

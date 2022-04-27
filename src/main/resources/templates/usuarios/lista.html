@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/plantilla::head"/>
+<body>
+    <div th:replace="layout/plantilla::header"/>
+    <main>
+        <div class="container">
+            <h2 th:text="#{lista.listU}">Lista de usuarios</h2>
+            <a th:href="@{/usuarios/registrar}" th:text="#{lista.addU}">Agregar nuevo usuario</a>
+            <div th:if="${usuarios != null and !usuarios.empty}">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th th:text="#{lista.eliminar}">Eliminar</th>
+                            <th th:text="#{lista.nick}">nick</th>
+                            <th th:text="#{lista.nombre}">nombre</th>
+                            <th th:text="#{lista.apellido}">apellido</th>
+                            <th th:text="#{lista.telefono}">telefono</th>
+                            <th th:text="#{lista.correo}">correo</th>
+                            <th th:text="#{lista.modificar}">Modificar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="usuario:${usuarios}">
+                            <td><a th:href="@{/usuarios/eliminar/} + ${usuario.id}" th:text="#{lista.eliminar}">Eliminar</a></td>
+                            <td th:text="${usuario.nick}"></td>
+                            <td th:text="${usuario.nombre}"></td>
+                            <td th:text="${usuario.apellido}"></td>
+                            <td th:text="${usuario.telefono}"></td>
+                            <td th:text="${usuario.correo}"></td>
+                            <td><a th:href="@{/usuarios/modificar/} + ${usuario.id}" th:text="#{lista.modificar}">Modificar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div th:if="${usuarios == null or usuarios.empty}">
+                <p th:text="#{lista.emptyU}">No existen usuarios registrados.</p> 
+            </div>
+            <a th:href="@{/}" th:text="#{lista.back}">Regresar al inicio</a>
+        </div>
+    </main>
+    <footer th:replace="layout/plantilla::footer"/>
+</body>
+</html>

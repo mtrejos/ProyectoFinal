@@ -1,6 +1,9 @@
 package com.tienda.controller;
 
-import com.tienda.domain.usuario;
+import com.tienda.entity.usuario;
+import com.tienda.service.actividadservice;
+import com.tienda.service.estatuservice;
+import com.tienda.service.parqueservice;
 import com.tienda.service.rolservice;
 import com.tienda.service.usuarioservice;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +20,12 @@ public class usuarioController {
     private usuarioservice usuarioservice;
     @Autowired
     private rolservice rolservice;
+    @Autowired
+    private actividadservice actividadservice;
+    @Autowired
+    private estatuservice estatuservice;
+    @Autowired
+    private parqueservice parqueservice;
     
     @GetMapping("/usuarios/lista")
     public String adminusuario(Model model){
@@ -51,5 +60,12 @@ public class usuarioController {
     public String eliminarusuario(usuario usuario){
         usuarioservice.delete(usuario);
         return "redirect:/usuarios/lista";
+    }
+    
+    @GetMapping("/usuarios/comprar/{id}")
+    public String comprarusuario(usuario usuario, Model model){
+        var List = actividadservice.getActividad();
+        model.addAttribute("actividades",List);
+        return "/usuarios/comprar";
     }
 }

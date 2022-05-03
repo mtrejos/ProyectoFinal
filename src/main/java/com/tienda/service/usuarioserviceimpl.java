@@ -2,8 +2,8 @@ package com.tienda.service;
 
 import com.tienda.dao.roldao;
 import com.tienda.dao.usuariodao;
-import com.tienda.domain.rol;
-import com.tienda.domain.usuario;
+import com.tienda.entity.rol;
+import com.tienda.entity.usuario;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,5 +38,10 @@ public class usuarioserviceimpl implements usuarioservice {
     public usuario getUsuario(usuario usuario) {
         return usuariodao.findById(usuario.id).orElse(null); //En el video tenian .getIdCliente que para nosotros seria getIdUsuario
     }
+    
+    @Override
+    public usuario findByNick(String nick) {
+        return usuariodao.findByNick(nick);
+    }    
     
 }

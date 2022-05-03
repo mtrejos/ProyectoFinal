@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/plantilla::head"/>
+<body>
+    <div th:replace="layout/plantilla::header"/>
+    <main>
+        <div class="container">
+            <h2 th:text="#{lista.listA}">Lista de actividades</h2>
+            <a th:href="@{/usuarios/lista}" th:text="#{editar.back}">Regresar</a>
+            <form th:action="@{/usuarios/comprar}" method="post" th:object="${usuario}">
+              <div class="mb-3">
+                  <input type="hidden" name="id" th:field="*{id}"/>
+              </div>
+              <div class="mb-3">
+                  <label class="form-label" for="actividad">Actividad:</label>
+                  <select class="form-select" name="actividad">
+                      <option th:each="actividad:${actividades}" th:value="${actividad.id}" th:text="${{actividad.nombre}"/>
+                  </select>
+              </div>
+              <input class="btn btn-primary" type="submit" name="comprar" value="Comprar">
+          </form>
+        </div>
+    </main>
+    <footer th:replace="layout/plantilla::footer"/>
+</body>
+</html>

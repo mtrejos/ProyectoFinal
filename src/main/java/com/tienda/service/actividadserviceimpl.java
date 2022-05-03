@@ -1,7 +1,7 @@
 package com.tienda.service;
 
 import com.tienda.dao.actividaddao;
-import com.tienda.domain.actividad;
+import com.tienda.entity.actividad;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

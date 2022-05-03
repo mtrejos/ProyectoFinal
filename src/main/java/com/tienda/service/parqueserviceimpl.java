@@ -1,7 +1,7 @@
 package com.tienda.service;
 
 import com.tienda.dao.parquedao;
-import com.tienda.domain.parque;
+import com.tienda.entity.parque;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

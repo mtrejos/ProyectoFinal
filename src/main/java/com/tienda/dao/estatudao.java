@@ -1,8 +1,8 @@
 package com.tienda.dao;
 
-import com.tienda.domain.estatu;
-import org.springframework.data.repository.CrudRepository;
+import com.tienda.entity.estatu;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface estatudao extends CrudRepository<estatu, Long>{
+public interface estatudao extends JpaRepository<estatu, Long>{
     
 }

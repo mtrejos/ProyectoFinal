@@ -1,4 +1,4 @@
-package com.tienda.domain;
+package com.tienda.entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -21,8 +21,8 @@ public class actividad implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     public Long id;
-    private String nombre;
-    private String descripcion;
+    public String nombre;
+    public String descripcion;
     
     @ManyToOne
     @JoinColumn(name="parque")

@@ -1,7 +1,7 @@
 package com.tienda.service;
 
 import com.tienda.dao.estatudao;
-import com.tienda.domain.estatu;
+import com.tienda.entity.estatu;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

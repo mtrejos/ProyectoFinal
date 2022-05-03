@@ -1,4 +1,4 @@
-package com.tienda.domain;
+package com.tienda.entity;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -12,22 +12,22 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="estatus")
+@Table(name="roles")
 
-public class estatu implements Serializable {
+public class rol implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     public Long id;
-    private String nombre;
+    public String rol;
 
-    public estatu() {
+    public rol() {
     }
 
-    public estatu(Long id, String nombre) {
+    public rol(Long id, String rol) {
         this.id = id;
-        this.nombre = nombre;
-    }    
-        
+        this.rol = rol;
+    }
+    
 }

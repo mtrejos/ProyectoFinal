@@ -1,7 +1,7 @@
 package com.tienda.service;
 
 import com.tienda.dao.roldao;
-import com.tienda.domain.rol;
+import com.tienda.entity.rol;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
 package com.tienda.dao;
 
-import com.tienda.domain.parque;
-import org.springframework.data.repository.CrudRepository;
+import com.tienda.entity.parque;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface parquedao extends CrudRepository<parque,Long>{
+public interface parquedao extends JpaRepository<parque,Long>{
     
 }

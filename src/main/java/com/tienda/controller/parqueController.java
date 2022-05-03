@@ -1,6 +1,6 @@
 package com.tienda.controller;
 
-import com.tienda.domain.parque;
+import com.tienda.entity.parque;
 import com.tienda.service.parqueservice;
 import com.tienda.service.estatuservice;
 import lombok.extern.slf4j.Slf4j;

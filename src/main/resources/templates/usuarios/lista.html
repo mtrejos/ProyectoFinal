@@ -18,6 +18,7 @@
                             <th th:text="#{lista.telefono}">telefono</th>
                             <th th:text="#{lista.correo}">correo</th>
                             <th th:text="#{lista.modificar}">Modificar</th>
+                            <th>Comprar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,7 @@
                             <td th:text="${usuario.telefono}"></td>
                             <td th:text="${usuario.correo}"></td>
                             <td><a th:href="@{/usuarios/modificar/} + ${usuario.id}" th:text="#{lista.modificar}">Modificar</a></td>
+                            <td><a th:href="@{/usuarios/comprar/} + ${usuario.id}">Comprar</a></td>
                         </tr>
                     </tbody>
                 </table>

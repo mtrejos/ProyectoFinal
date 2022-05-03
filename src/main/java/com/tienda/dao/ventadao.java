@@ -1,8 +1,8 @@
 package com.tienda.dao;
 
-import com.tienda.entity.rol;
+import com.tienda.entity.venta;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface roldao extends JpaRepository<rol, Long>{
+public interface ventadao extends JpaRepository<venta, Long>{
     
 }

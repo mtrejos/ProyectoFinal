@@ -1,5 +1,5 @@
 package com.tienda.service;
-import com.tienda.domain.rol;
+import com.tienda.entity.rol;
 import java.util.List;
 
 public interface rolservice {

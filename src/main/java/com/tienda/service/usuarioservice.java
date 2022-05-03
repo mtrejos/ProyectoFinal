@@ -1,5 +1,5 @@
 package com.tienda.service;
-import com.tienda.domain.usuario;
+import com.tienda.entity.usuario;
 import java.util.List;
 
 public interface usuarioservice {
@@ -10,4 +10,6 @@ public interface usuarioservice {
     public void delete(usuario usuario);
     
     public usuario getUsuario(usuario usuario);
+
+    public usuario findByNick(String nick);
 }

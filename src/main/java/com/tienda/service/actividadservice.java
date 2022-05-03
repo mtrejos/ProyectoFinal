@@ -1,5 +1,5 @@
 package com.tienda.service;
-import com.tienda.domain.actividad;
+import com.tienda.entity.actividad;
 import java.util.List;
 
 public interface actividadservice {

@@ -1,5 +1,5 @@
 package com.tienda.service;
-import com.tienda.domain.parque;
+import com.tienda.entity.parque;
 import java.util.List;
 
 public interface parqueservice {

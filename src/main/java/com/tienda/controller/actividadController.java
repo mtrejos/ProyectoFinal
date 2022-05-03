@@ -1,6 +1,6 @@
 package com.tienda.controller;
 
-import com.tienda.domain.actividad;
+import com.tienda.entity.actividad;
 import com.tienda.service.actividadservice;
 import com.tienda.service.estatuservice;
 import com.tienda.service.parqueservice;

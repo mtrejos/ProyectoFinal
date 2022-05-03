@@ -1,8 +1,11 @@
 package com.tienda.dao;
 
-import com.tienda.domain.usuario;
-import org.springframework.data.repository.CrudRepository;
+import com.tienda.entity.usuario;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface usuariodao extends CrudRepository<usuario, Long>{
-    
+@Repository
+public interface usuariodao extends JpaRepository<usuario, Long>{
+
+    public usuario findByNick(String nick);
 }

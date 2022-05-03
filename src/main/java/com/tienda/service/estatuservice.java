@@ -1,5 +1,5 @@
 package com.tienda.service;
-import com.tienda.domain.estatu;
+import com.tienda.entity.estatu;
 import java.util.List;
 
 public interface estatuservice {

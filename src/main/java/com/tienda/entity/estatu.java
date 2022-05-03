@@ -1,39 +1,33 @@
-package com.tienda.domain;
+package com.tienda.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="parques")
+@Table(name="estatus")
 
-public class parque implements Serializable{
-    
+public class estatu implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+    @Column(name="id")
     public Long id;
-    private String nombre;
+    public String nombre;
 
-    @ManyToOne
-    @JoinColumn(name="estatu")
-    private estatu estatu;
-    
-    public parque() {
+    public estatu() {
     }
 
-    public parque(Long id, String nombre, estatu estatu) {
+    public estatu(Long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.estatu = estatu;
-    }
-   
+    }    
+        
 }

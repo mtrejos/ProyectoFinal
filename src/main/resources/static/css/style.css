@@ -11,6 +11,10 @@ html, body {
   font-family: 'Dosis', sans-serif;
 }
 
+main{
+  min-height: 60vh;
+}
+
 .content-header {
   background-repeat: no-repeat;
   background-position: center;

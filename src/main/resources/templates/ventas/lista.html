@@ -3,39 +3,36 @@
 <head th:replace="layout/plantilla::head"/>
 <body>
     <div th:replace="layout/plantilla::header"/>
-    <main>
-        <h2>Lista de ventas</h2>
-        <!-- <a th:href="@{/usuarios/registrar}">Agregar venta</a> -->
-        <div th:if="${usuarios != null and !usuarios.empty}">
+    <main class="container"> 
+        <h2>Historial de ventas</h2>
+        <div th:if="${ventas != null and !ventas.empty}">
             <table class="table table-dark table-striped">
                 <thead>
                     <tr>
-                        <th>Eliminar</th>
-                        <th>nick</th>
-                        <th>nombre</th>
-                        <th>apellido</th>
-                        <th>telefono</th>
-                        <th>correo</th>
-                        <th>Modificar</th>
+                        <th>Id</th>
+                        <th>Usuario</th>
+                        <th>Actividad</th>
+                        <th>Cantidad</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="usuario:${usuarios}">
-                        <td><a th:href="@{/usuarios/eliminar/} + ${usuario.id}">Eliminar</a></td>
-                        <td th:text="${usuario.nick}"></td>
-                        <td th:text="${usuario.nombre}"></td>
-                        <td th:text="${usuario.apellido}"></td>
-                        <td th:text="${usuario.telefono}"></td>
-                        <td th:text="${usuario.correo}"></td>
-                        <td><a th:href="@{/usuarios/modificar/} + ${usuario.id}">Modificar</a></td>
+                    <tr th:each="venta:${ventas}">
+                        <td th:text="${venta.id}"></td>
+                        <td th:text="${venta.usuario.nombre}"></td>
+                        <td>[[${venta.actividad.nombre}]] - [[${venta.actividad.parque.nombre}]]</td>
+                        <td th:text="${venta.cantidad}"></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div th:if="${usuarios == null or usuarios.empty}">
-            No existen ventas registradas.
+        <div th:if="${ventas == null or ventas.empty}">
+            No hay ventas registradas.
         </div>
-        <a th:href="@{/}" th:text="#{lista.back}">Regresar al inicio</a>
+        <br>
+        <br>
+        <a th:href="@{/}" th:text="#{lista.back}" class="btn btn-info">Regresar al inicio</a>
+        <br>
+        <br>
     </main>
     <footer th:replace="layout/plantilla::footer"/>
 </body>

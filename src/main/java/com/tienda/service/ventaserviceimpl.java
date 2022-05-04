@@ -34,7 +34,7 @@ public class ventaserviceimpl implements ventaservice {
     @Override
     @Transactional(readOnly = true)
     public venta getVenta(venta venta) {
-        return ventadao.findById(venta.idVentas).orElse(null); //En el video tenian .getIdCliente que para nosotros seria getIdventa
+        return ventadao.findById(venta.id).orElse(null); //En el video tenian .getIdCliente que para este caso seria getIdventa
     }
     
 }

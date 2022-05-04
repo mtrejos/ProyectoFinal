@@ -6,7 +6,8 @@
     <main>
         <div class="container">
             <h1 th:text="#{editar.tituloA}">Datos del Actividades</h1>
-            <a th:href="@{/actividades/lista}" th:text="#{editar.back}">Regresar</a>
+            <a th:href="@{/actividades/lista}" th:text="#{editar.back}" class="btn btn-info">Regresar</a>
+            <br>
             <form th:action="@{/actividades/guardar}" method="post" th:object="${actividad}">
                 <div class="mb-3">
                     <input type="hidden" name="id" th:field="*{id}"/>
@@ -29,7 +30,7 @@
                         <option th:each="estatu:${estatus}" th:value="${estatu.id}" th:text="${estatu.nombre}"/>
                     </select>
                 </div>
-                <input class="btn btn-primary" type="submit" name="guardar" value="Guardar">
+                <input type="submit" name="guardar" value="Guardar" class="btn btn-success">
             </form>
         </div>
     </main>

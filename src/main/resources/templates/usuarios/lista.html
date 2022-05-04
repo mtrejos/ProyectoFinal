@@ -6,7 +6,8 @@
     <main>
         <div class="container">
             <h2 th:text="#{lista.listU}">Lista de usuarios</h2>
-            <a th:href="@{/usuarios/registrar}" th:text="#{lista.addU}">Agregar nuevo usuario</a>
+            <a th:href="@{/usuarios/registrar}" th:text="#{lista.addU}" class="btn btn-success">Agregar nuevo usuario</a>
+            <br>
             <div th:if="${usuarios != null and !usuarios.empty}">
                 <table class="table table-dark table-striped">
                     <thead>
@@ -23,14 +24,14 @@
                     </thead>
                     <tbody>
                         <tr th:each="usuario:${usuarios}">
-                            <td><a th:href="@{/usuarios/eliminar/} + ${usuario.id}" th:text="#{lista.eliminar}">Eliminar</a></td>
+                            <td><a th:href="@{/usuarios/eliminar/} + ${usuario.id}" th:text="#{lista.eliminar}" class="btn btn-danger">Eliminar</a></td>
                             <td th:text="${usuario.nick}"></td>
                             <td th:text="${usuario.nombre}"></td>
                             <td th:text="${usuario.apellido}"></td>
                             <td th:text="${usuario.telefono}"></td>
                             <td th:text="${usuario.correo}"></td>
-                            <td><a th:href="@{/usuarios/modificar/} + ${usuario.id}" th:text="#{lista.modificar}">Modificar</a></td>
-                            <td><a th:href="@{/usuarios/comprar/} + ${usuario.id}">Comprar</a></td>
+                            <td><a th:href="@{/usuarios/modificar/} + ${usuario.id}" th:text="#{lista.modificar}" class="btn btn-warning">Modificar</a></td>
+                            <td><a th:href="@{/usuarios/comprar/} + ${usuario.id}" class="btn btn-primary">Comprar</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -38,7 +39,8 @@
             <div th:if="${usuarios == null or usuarios.empty}">
                 <p th:text="#{lista.emptyU}">No existen usuarios registrados.</p> 
             </div>
-            <a th:href="@{/}" th:text="#{lista.back}">Regresar al inicio</a>
+            <a th:href="@{/}" th:text="#{lista.back}" class="btn btn-info">Regresar al inicio</a>
+            <br><br>
         </div>
     </main>
     <footer th:replace="layout/plantilla::footer"/>

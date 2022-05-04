@@ -19,8 +19,8 @@ public class venta implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long id;
     
-    public Long idVentas;
     public Long cantidad;
     
     @ManyToOne
@@ -34,8 +34,8 @@ public class venta implements Serializable{
     public venta() {
     }
 
-    public venta(Long idVentas, usuario usuario, actividad actividad, Long cantidad) {
-        this.idVentas = idVentas;
+    public venta(Long id, usuario usuario, actividad actividad, Long cantidad) {
+        this.id = id;
         this.usuario = usuario;
         this.actividad = actividad;
         this.cantidad = cantidad;

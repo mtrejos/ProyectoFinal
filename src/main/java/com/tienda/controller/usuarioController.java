@@ -62,10 +62,4 @@ public class usuarioController {
         return "redirect:/usuarios/lista";
     }
     
-    @GetMapping("/usuarios/comprar/{id}")
-    public String comprarusuario(usuario usuario, Model model){
-        var List = actividadservice.getActividad();
-        model.addAttribute("actividades",List);
-        return "/usuarios/comprar";
-    }
 }
